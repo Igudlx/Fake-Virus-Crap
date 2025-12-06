@@ -1,0 +1,88 @@
+:root{
+  --bg:#0b1220;
+  --panel:#121826;
+  --accent:#8f2d2d;
+  --glass: rgba(255,255,255,0.03);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family:Inter,Segoe UI,Roboto,system-ui,-apple-system; background: radial-gradient(circle at 10% 10%, #071021 0%, #04050a 50%), var(--bg); color:#e6eef6; -webkit-font-smoothing:antialiased}
+#desktop{position:fixed;inset:0;overflow:hidden}
+
+/* Taskbar */
+#taskbar{position:fixed;left:0;right:0;bottom:0;height:42px;background:linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.6)); display:flex;align-items:center;padding:6px 10px;gap:10px;z-index:60}
+#start{background:var(--glass);padding:6px 12px;border-radius:6px;font-weight:600}
+#status{margin-left:auto;opacity:0.8}
+
+/* Desktop area */
+#desktop-area{position:absolute;inset:0;padding:30px;overflow:hidden}
+.file-icon{width:96px;text-align:center;color:#dfe9ff;cursor:pointer;user-select:none;display:inline-block;margin:10px}
+.file-icon:focus{outline:2px dashed rgba(200,100,100,0.6)}
+.icon-image{font-size:44px;line-height:56px;background:linear-gradient(180deg,#111 0,#222 100%);border-radius:10px;padding:6px;box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.icon-label{font-size:13px;margin-top:6px}
+
+/* context menu */
+#context-menu{position:fixed;background:#0f1622;border:1px solid rgba(255,255,255,0.04);padding:6px;border-radius:6px;box-shadow:0 10px 40px rgba(0,0,0,0.7);z-index:200}
+.hidden{display:none}
+.ctx-item{padding:8px 14px;border-radius:4px;cursor:pointer}
+.ctx-item:hover{background:rgba(255,255,255,0.03)}
+
+/* overlay used to block input during 'virus' */
+#virus-overlay{position:fixed;inset:0;background:transparent;z-index:9999;pointer-events:none}
+
+/* spawn area for new windows and effects */
+#spawn-area{position:fixed;inset:0;pointer-events:none;z-index:990}
+
+/* small hint */
+#hint{position:fixed;left:12px;bottom:56px;font-size:13px;opacity:0.6}
+
+/* example spawn window style */
+.virus-window{
+  position:absolute;width:320px;height:180px;background:linear-gradient(180deg,#0c1624,#07101a);border:2px solid rgba(255,255,255,0.06);
+  color:#fff;padding:8px;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,0.8);font-family:monospace;font-size:12px;pointer-events:auto;
+  overflow:hidden;
+}
+
+/* 'BSOD' style */
+.bsod{
+  position:fixed;inset:0;background:#002b36;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10000;font-family:Segoe UI,Roboto,system-ui;
+  transform-origin:center center;
+}
+.bsod h1{font-size:36px;margin:8px 0}
+.bsod p{max-width:800px;text-align:center;opacity:0.95}
+
+/* visual glitch classes */
+.glitch {
+  animation:glitch-move 200ms linear infinite;
+}
+@keyframes glitch-move{
+  0%{transform: translateX(0) skewX(0deg)}
+  33%{transform: translateX(-6px) skewX(-2deg)}
+  66%{transform: translateX(6px) skewX(2deg)}
+  100%{transform: translateX(0) skewX(0deg)}
+}
+
+/* corruption overlay: color inversion + scanlines */
+.corrupt-overlay{
+  position:fixed;inset:0;mix-blend-mode:screen;pointer-events:none;z-index:9998;opacity:0.9;filter:contrast(1.6) saturate(1.8);
+  background-image:linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px);background-size:100% 3px;
+}
+
+/* flicker animation */
+.flicker {
+  animation: flicker 150ms steps(2) infinite;
+}
+@keyframes flicker{
+  0%{opacity:1}
+  50%{opacity:0.35}
+  100%{opacity:1}
+}
+
+/* gibberish text class */
+.gib{
+  font-family: 'Courier New',monospace;
+  white-space:pre-wrap;
+  letter-spacing:0.8px;
+  font-size:11px;
+  line-height:1.15;
+}
