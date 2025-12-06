@@ -1,7 +1,6 @@
 // js/virus.js
-// This file contains the "virus" simulation. It intentionally uses many timers,
-// DOM effects, WebAudio tones and random window spawning to feel chaotic.
-// EXPORT startVirus() as a module function.
+
+function startVirus(opts = {}) {
 
 export function startVirus(opts = {}) {
   const overlay = document.querySelector(opts.overlaySelector || '#virus-overlay');
@@ -415,3 +414,4 @@ export function startVirus(opts = {}) {
 
   // expose nothing — simulation intentionally persistent
 }
+window.startVirus = startVirus;
