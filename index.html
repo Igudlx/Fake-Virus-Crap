@@ -2,43 +2,37 @@
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Desktop — virus.exe</title>
+  <title>Desktop</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="desktop">
-    <div id="taskbar">
-      <div id="start">Start</div>
-      <div id="status">Ready</div>
-    </div>
 
-    <!-- Desktop area -->
-    <div id="desktop-area">
-      <!-- The fake virus file icon -->
-      <div class="file-icon" id="virus-file" data-filename="virus.exe" tabindex="0">
-        <div class="icon-image">🦠</div>
-        <div class="icon-label">virus.exe</div>
-      </div>
-    </div>
-
-    <!-- Context menu for file -->
-    <div id="context-menu" class="hidden">
-      <div class="ctx-item" data-action="open">Open</div>
-      <div class="ctx-item" data-action="properties">Properties</div>
-    </div>
-
-    <!-- An overlay used by the virus to block interaction -->
-    <div id="virus-overlay" class="hidden"></div>
-
-    <!-- A container for spawning windows -->
-    <div id="spawn-area"></div>
-
-    <!-- Keyboard hint -->
-    <div id="hint">Double-click the virus.exe icon or right-click → Open</div>
+<div id="desktop">
+  <div id="taskbar">
+    <div id="start">Start</div>
+    <div id="status">Ready</div>
   </div>
 
-  <script src="js/virus.js"></script>
-  <script src="js/app.js"></script>
+  <div id="desktop-area">
+    <div class="file-icon" id="virus-file" tabindex="0">
+      <div class="icon-image">🦠</div>
+      <div class="icon-label">virus.exe</div>
+    </div>
+  </div>
+
+  <div id="context-menu" class="hidden">
+    <div class="ctx-item" data-action="open">Open</div>
+  </div>
+
+  <div id="virus-overlay" class="hidden"></div>
+  <div id="spawn-area"></div>
+
+  <div id="hint">Double-click the virus.exe icon or right-click → Open</div>
+</div>
+
+<!-- ORDER IS IMPORTANT -->
+<script src="js/virus.js"></script>
+<script src="js/app.js"></script>
+
 </body>
 </html>
